@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eleanor Rasmussen - Portfolio</title>
+    <link rel="stylesheet" href="styles/project.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <div class="nav">
+      <div><a href="index.html#featured-projects">Featured Projects</a></div>
+      <div><a href="index.html#other-projects">Other Projects</a></div>
+      <div><a href="Resume_Rasmussen.pdf">Resume</a></div>
+    </div>
+    <div class="project">
+        <h1 class="project-title"><a href="https://too-many-frogs.itch.io/dungeon-of-the-dragon">Dungeon of the Dragon</a></h1>
+        <p class="p-narrow">
+          <a href="https://too-many-frogs.itch.io/dungeon-of-the-dragon">Dungeon of the Dragon</a> is a tower defense game created in 3 days for the Ludum Dare game jam. 
+          You take on the role of a dungeon designer, laying traps in your dungeon to be triggered by automated agents attempting to steal your treasure hoard.
+       </p>
+       <div class="project-blurb">
+        <p>
+          I needed a pathfinding algorithm that would ensure the agents always reached their goal without taking the same path every time. 
+          The strict time limit of the game jam necessitated an algorithm that was easy to implement and resilient to errors. 
+          The core concept of the algorithm is to treat an agent's desired vector as the odds that they follow the most direct path.
+        </p>
+        <img src="images/DungeonOfTheDragon/DungeonOfTheDragon.gif">
+       </div>
+        <div class="project-blurb">
+            <p>
+              First, I use vector subtraction and normalization to find an agent's desired vector. 
+              The sign of each component in this desired vector will inform the agent which direction to move in, and the values of the components will determine how likely each potential move is to happen. 
+            </p>
+            <img src="images/DungeonOfTheDragon/NormalizedVector.png">
+        </div>
+        <div class="project-blurb">
+          <p>
+            I then identify the larger component L in the desired vector and calculate the likelihood of each move. 
+            The chance of the agent moving along its most direct path is equal to L, and the chance of the less direct path is 1 - L. 
+          </p>
+          <img src="images/DungeonOfTheDragon/Percentages.png">
+        </div>
+        <div class="project-blurb">
+          <p>
+            By interpreting a normalized vector as the chance the agent will move in a given direction, the algorithm becomes resilient to the edge case in which there is only 1 valid move. 
+          </p>
+          <img src="images/DungeonOfTheDragon/EdgeCase.png">
+        </div>
+        <p class="p-narrow">
+          Interpreting the normalized vector in this way also means the smallest possible value of L is 1 divided by the square root of 2 (about 0.71), making the algorithm favor more straightforward paths. 
+          This works well for Dungeon of the Dragon because the player is placing traps for the agent to trigger. 
+          The algorithm creates a highly travelled path to place more effective traps, but gives agents a way to potentially circumnavigate these traps without the need for a complex understanding of their surroundings. 
+        </p>
+    </div>
+    <div class="nav-bottom">
+      <div><a href="index.html#featured-projects">Featured Projects</a></div>
+      <div><a href="index.html#other-projects">Other Projects</a></div>
+      <div><a href="Resume_Rasmussen.pdf">Resume</a></div>
+    </div>
+  </body>
+</html>

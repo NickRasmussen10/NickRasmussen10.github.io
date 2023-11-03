@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eleanor Rasmussen - Portfolio</title>
+    <link rel="stylesheet" href="styles/project.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <div class="nav">
+      <div><a href="index.html#featured-projects">Featured Projects</a></div>
+      <div><a href="index.html#other-projects">Other Projects</a></div>
+      <div><a href="Resume_Rasmussen.pdf">Resume</a></div>
+    </div>
+    <div class="project">
+        <h1 class="project-title"><a href="https://people.rit.edu/nlr3026/529/ATownCalledTrouble/ATownCalledTrouble.html">A Town Called Trouble</a></h1>
+        <p class="p-narrow">
+          <a href="https://people.rit.edu/nlr3026/529/ATownCalledTrouble/ATownCalledTrouble.html">A Town Called Trouble</a> is a text-heavy adventure game made as my final project for an Interactive Narrative course. 
+          The game was programmed in Javascript using the Twine game engine. 
+        </p>
+        <div class="project-blurb">
+            <p>
+              A major component of A Town Called Trouble was dialogue between the player and non-player characters. 
+              Despite being presented as non-linear in the game, these dialogues were inevitably written line-by-line in a text file. 
+              Each line is given an index, the dialogue to be displayed in-game, and a microdirective that will inform the game on how to interpret the line. 
+            </p>
+            <img src="images/TownCalledTrouble/TextFile.png">
+        </div>
+        <div class="project-blurb">
+          <p>
+            Because the game is programmed in Javascript, dialogue needs to be converted from a text file to a JSON object. 
+            This is handled automatically by a tool I created for A Town Called Trouble's development. 
+          </p>
+          <img src="images/TownCalledTrouble/JSONobject.png">
+        </div>
+        <div class="project-blurb">
+          <p>
+            The game features a side panel in which these dialogues are presented. 
+            This panel is split into two regions: the Game Text and the Responses. 
+          </p>
+          <img src="images/TownCalledTrouble/SidePanel.png">
+        </div>
+        <div class="project-blurb">
+          <p>
+            At the start of a dialogue, the 0th line's text property is loaded into the Game Text. 
+            This line will always have a SHOW microdirective referencing 1-4 other lines. 
+            The text properties of these lines are loaded into each button in the Responses, and unused buttons are hidden. 
+          </p>
+          <img src="images/TownCalledTrouble/JSONtoDialogue.png">
+        </div>
+          <p class="p-narrow">
+            When a button is clicked, the dialogue system finds the line referenced by that line's GOTO microdirective. 
+            This line's text is then loaded into the Game Text, it's SHOW references are loaded into the Responses, and the dialogue proceeds from there. 
+            In this way, each dialogue functions as a loop between lines showing potential responses and buttons jumping to new lines in the JSON object. 
+          </p>
+    </div>
+    <div class="nav-bottom">
+      <div><a href="index.html#featured-projects">Featured Projects</a></div>
+      <div><a href="index.html#other-projects">Other Projects</a></div>
+      <div><a href="Resume_Rasmussen.pdf">Resume</a></div>
+    </div>
+  </body>
+</html>

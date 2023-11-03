@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eleanor Rasmussen - Portfolio</title>
+    <link rel="stylesheet" href="styles/project.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <div class="nav">
+      <div><a href="index.html#featured-projects">Featured Projects</a></div>
+      <div><a href="index.html#other-projects">Other Projects</a></div>
+      <div><a href="Resume_Rasmussen.pdf">Resume</a></div>
+    </div>
+    <div class="project">
+        <h1 class="project-title">Croak and Dagger</h1>
+        <p class="p-narrow">  
+          Croak and Dagger is a hack n' slash game currently in development by a team of students at the Rochester Institute of Technology. 
+          I joined this team for one semester, during which my main contribution was the development of a swing mechanic. 
+        </p>
+        <div class="project-blurb">
+          <p>
+            The core idea behind the swing is to define a sphere encompassing the area in which the player could swing, then move the player along the surface of that sphere until they cancel the swing. 
+          </p>
+          <img src="images/CroakAndDagger/SwingExmaple.gif">
+        </div>
+        <div class="project-blurb">
+            <p>
+              First I define the sphere. The function takes in a vector called the anchor, which is the point in 3D space from which the player decided to swing. 
+              This anchor becomes the center the sphere, and the sphere's radius is equal to the distance between the anchor and the player.</p>
+            <img src="images/CroakAndDagger/DefineSphere.png">
+        </div>
+        <div class="project-blurb">
+          <p>
+            Now I add the player's velocity to their position to find where they would be if they weren't swinging. 
+            This is called the ghost position because the player won't actually be moved here. 
+            Instead, the ghost position will be used to find where on the sphere the player should be moved to. 
+          </p>
+          <img src="images/CroakAndDagger/GhostPosition.png">
+        </div>
+        <div class="project-blurb">
+          <p>
+            This point, called the sphere position, can be calculated by finding the vector from the anchor to the ghost position, normalizing it, then multiplying the normalized vector by the radius of the sphere. 
+          </p>
+          <img src="images/CroakAndDagger/SpherePosition.png">
+        </div>
+        <div class="project-blurb">
+          <p>
+            Finally, I can calculate a new velocity that accounts for the swing by finding the vector from the player's current position to the sphere position. 
+            The player moves using this new velocity. 
+          </p>
+          <img src="images/CroakAndDagger/NewVelocity.png">
+        </div>
+        <div class="project-blurb">
+        <p>
+          The entire swing mechanic then functions by repeating this loop until the swing gets cancelled.
+          <br><i>
+          <br>&emsp;1. find the ghost position
+          <br>&emsp;2. find the sphere point
+          <br>&emsp;3. update the player's velocity
+          <br>&emsp;4. move the player
+          </i>
+        </p>
+        <img src="images/CroakAndDagger/FullSwing.png">
+      </div>
+    </div>
+    <div class="nav-bottom">
+      <div><a href="index.html#featured-projects">Featured Projects</a></div>
+      <div><a href="index.html#other-projects">Other Projects</a></div>
+      <div><a href="Resume_Rasmussen.pdf">Resume</a></div>
+    </div>
+  </body>
+</html>
